@@ -1,5 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterwidgets/signUp.dart';
+
+import 'home.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Hello World Flutter Application',
       theme: ThemeData(
         // This is the theme of your application.
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Login'),
     );
@@ -30,7 +33,7 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             this.title,
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
           leading: Icon(Icons.icecream),
           actions: [Icon(Icons.star)],
@@ -43,7 +46,7 @@ class MyHomePage extends StatelessWidget {
                 width: 200,
                 height: 200,
                 child: Image.network(
-                    'https://avatars.githubusercontent.com/u/28203059?v=4'),
+                    'https://ibwc.in/wp-content/uploads/2021/06/log.png'),
               ),
               Padding(
                 padding: EdgeInsets.all(20.0),
@@ -79,7 +82,11 @@ class MyHomePage extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => home(),
+                      ));
+                    },
                   ),
                 ),
               ),
@@ -94,7 +101,9 @@ class MyHomePage extends StatelessWidget {
                             text: 'Sign Up',
                             style: TextStyle(color: Colors.red, fontSize: 15),
                             recognizer: TapGestureRecognizer()..onTap = () {
-
+                              Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => MyForm(),
+                              ));
                             })
                       ]),
                 ),
